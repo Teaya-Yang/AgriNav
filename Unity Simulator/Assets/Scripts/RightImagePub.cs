@@ -70,68 +70,13 @@ public class RightImagePub : MonoBehaviour
         if (texture2D != null && _camera == this.ImageCamera)
             UpdateMessage();
     }
-    // private void UpdateMessage()
-    // {   
-    //     timeElapsed = currentRosTime - previousRosTime;
-        
-    //     // Debug.Log($"Current Time Diff(seconds): {timeElapsed}");
 
-    //     if (timeElapsed > publishMessageFrequency)
-    //     {
-    //         timeElapsed = 0;
-    //         previousRosTime = currentRosTime;
-    //         // Debug.Log("Time to publish");
-            
-
-    //         // Copy image to texture
-    //         texture2D.ReadPixels(rect, 0, 0);
-    //         texture2D.Apply();
-    //         TimeMsg timeStamp = ConvertFloatTimeToRosTimeMsg(currentRosTime);
-
-    //         // Convert RGB image to grayscale
-    //         Color32[] pixels = texture2D.GetPixels32();
-    //         byte[] grayscaleData = new byte[pixels.Length];
-    //         for (int i = 0; i < pixels.Length; i++)
-    //         {
-    //             // Use luminance formula to convert to grayscale
-    //             grayscaleData[i] = (byte)(0.299f * pixels[i].r + 0.587f * pixels[i].g + 0.114f * pixels[i].b);
-    //         }
-
-    //         //Message
-    //         ImageMsg message = new ImageMsg
-    //         {
-    //             header = new HeaderMsg
-    //             {
-    //                 seq = seq_num,
-    //                 frame_id = FrameId,
-    //                 stamp = timeStamp
-    //             },
-    //             // data = texture2D.EncodeToJPG(qualityLevel)
-
-    //             height = (uint)resolutionHeight,
-    //             width = (uint)resolutionWidth,
-    //             encoding = "mono8", // Specify the encoding
-    //             is_bigendian = 0,
-    //             step = (uint)resolutionWidth, // 1 byte per pixel for mono8
-    //             data = grayscaleData
-    //         };
-    //         seq_num += 1;
-
-    //         // Finally send the message to server_endpoint.py running in ROS
-    //         ros.Publish(ImagetopicName, message);
-
-    //         //Camera Info message
-    //         CameraInfoMsg cameraInfoMessage = CameraInfoGenerator.ConstructCameraInfoMessage(ImageCamera, message.header, 0.0f, 0.01f);
-    //         ros.Publish(cameraInfoTopicName, cameraInfoMessage);
-
-    //     }
-    // }
     private void UpdateMessage()
 {
     timeElapsed = currentRosTime - previousRosTime;
 
-    if (timeElapsed > publishMessageTime)
-    {
+    // if (timeElapsed > publishMessageTime)
+    // {
         timeElapsed = 0;
         previousRosTime = currentRosTime;
 
@@ -187,7 +132,7 @@ public class RightImagePub : MonoBehaviour
         // Camera Info message
         CameraInfoMsg cameraInfoMessage = CameraInfoGenerator.ConstructCameraInfoMessage(ImageCamera, message.header, 0.0f, 0.01f);
         ros.Publish(cameraInfoTopicName, cameraInfoMessage);
-    }
+    // }
 }
     private TimeMsg ConvertFloatTimeToRosTimeMsg(float timeInSeconds)
 {

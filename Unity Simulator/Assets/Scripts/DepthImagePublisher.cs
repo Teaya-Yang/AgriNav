@@ -20,7 +20,9 @@ public class DepthImagePublisher : MonoBehaviour
     public int resolutionHeight = 720;
     private Texture2D texture2D;
     private Rect rect;
-    public float publishMessageFrequency = 0.01f;
+    public float publishMessageFrequency = 15.0f;
+    private float publishMessageTime;
+
     private float timeElapsed;
     private uint seq_num = 0;
     private float currentRosTime = 0.0f;
@@ -33,6 +35,8 @@ public class DepthImagePublisher : MonoBehaviour
 
     void Start()
     {
+        publishMessageTime = 1 / publishMessageFrequency;
+
         ImageCamera = GetComponent<Camera>(); 
         ros = ROSConnection.GetOrCreateInstance();
         ros.RegisterPublisher<ImageMsg>(ImagetopicName);
@@ -53,10 +57,12 @@ public class DepthImagePublisher : MonoBehaviour
     }
 
     void UpdateClock(RosClock clockMessage)
-    {
-        float seconds = clockMessage.clock.sec - 1724706699;
+    {   
+        float seconds = clockMessage.clock.sec;
         float nanoseconds = clockMessage.clock.nanosec / 1e9f;
         currentRosTime = seconds + nanoseconds;
+
+        // Debug.Log($"Seconds: {seconds}, Nanoseconds: {nanoseconds}, Current ROS Time (seconds): {currentRosTime}");
     }
 
     private void UpdateImage(Camera _camera)
@@ -69,8 +75,10 @@ private void UpdateMessage()
 {   
     timeElapsed = currentRosTime - previousRosTime;
     
-    if (timeElapsed > publishMessageFrequency)
-    {
+    // if (timeElapsed > publishMessageTime)
+    // {   
+        // Debug.Log($"Time to publish!");
+        timeElapsed = 0;
         previousRosTime = currentRosTime;
         TimeMsg timeStamp = ConvertFloatTimeToRosTimeMsg(currentRosTime);
 
@@ -114,7 +122,7 @@ private void UpdateMessage()
         // Publish Camera Info message
         CameraInfoMsg cameraInfoMessage = CameraInfoGenerator.ConstructCameraInfoMessage(ImageCamera, imageMessage.header, 0.0f, 0.01f);
         ros.Publish(cameraInfoTopicName, cameraInfoMessage);
-    }
+    // }
 }
 
 
