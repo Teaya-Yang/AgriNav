@@ -83,6 +83,9 @@ private void UpdateMessage()
         TimeMsg timeStamp = ConvertFloatTimeToRosTimeMsg(currentRosTime);
 
         // Copy image to texture and flip it vertically
+
+        RenderTexture renderTexture = ImageCamera.targetTexture;
+        ApplyBlur(renderTexture);
         texture2D.ReadPixels(rect, 0, 0, false);
         texture2D.Apply();
         FlipTextureVertically(texture2D);
@@ -125,6 +128,13 @@ private void UpdateMessage()
     // }
 }
 
+    void ApplyBlur(RenderTexture source)
+    {
+        RenderTexture tempRT = RenderTexture.GetTemporary(source.width, source.height, 24, RenderTextureFormat.R16);
+        Graphics.Blit(source, tempRT, blurMaterial);
+        Graphics.Blit(tempRT, source);
+        RenderTexture.ReleaseTemporary(tempRT);
+    }
 
     private void FlipTextureVertically(Texture2D original)
     {
