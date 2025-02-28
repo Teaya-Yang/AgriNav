@@ -1,0 +1,4 @@
+# Ignore everything inside Unity Simulator, except specified folders
+Library/
+Logs/
+Screenshots/

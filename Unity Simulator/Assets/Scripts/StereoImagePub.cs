@@ -10,7 +10,7 @@ using Unity.Robotics.ROSTCPConnector.MessageGeneration;
 using RosClock = RosMessageTypes.Rosgraph.ClockMsg;
 
 
-public class RightImagePub : MonoBehaviour
+public class StereoImagePub : MonoBehaviour
 {
     ROSConnection ros;
     public string ImagetopicName = "/d455/infra2/image_rect_raw";
