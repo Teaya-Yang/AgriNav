@@ -1,0 +1,90 @@
+#
+# Definition of all trackable objects
+# Identifier corresponds to Trackable ID set in Tracking Tools
+# NOTE: If you're using idendifier larger than 20, you should add it here.
+vehicles:
+    '1':
+        pose: mocap_output1
+    '2':
+        pose: mocap_output2
+    '3':
+        pose: mocap_output3
+    '4':
+        pose: mocap_output4
+    '5':
+        pose: mocap_output5
+    '6':
+        pose: mocap_output6
+    '7':
+        pose: mocap_output7
+    '8':
+        pose: mocap_output8
+    '9':
+        pose: mocap_output9
+    '10':
+        pose: mocap_output10
+    '11':
+        pose: mocap_output11
+    '12':
+        pose: mocap_output12
+    '13':
+        pose: mocap_output13
+    '14':
+        pose: mocap_output14
+    '15':
+        pose: mocap_output15
+    '16':
+        pose: mocap_output16
+    '17':
+        pose: mocap_output17
+    '18':
+        pose: mocap_output18
+    '19':
+        pose: mocap_output19
+    '20':
+        pose: mocap_output20
+    '21':
+        pose: mocap_output21
+    '22':
+        pose: mocap_output22
+    '23':
+        pose: mocap_output23
+    '24':
+        pose: mocap_output24
+    '25':
+        pose: mocap_output25
+    '26':
+        pose: mocap_output26
+    '27':
+        pose: mocap_output27
+    '28':
+        pose: mocap_output28
+    '29':
+        pose: mocap_output29
+    '30':
+        pose: mocap_output30
+# Add ESP-style drones, Jerry
+    '100':
+        pose: mocap_output100
+    '101':
+        pose: mocap_output101
+    '102':
+        pose: mocap_output102
+    '103':
+        pose: mocap_output103
+    '104':
+        pose: mocap_output104
+    '105':
+        pose: mocap_output105
+    '106':
+        pose: mocap_output106
+    '107':
+        pose: mocap_output107
+    '108':
+        pose: mocap_output108
+    '109':
+        pose: mocap_output109
+    '110':
+        pose: mocap_output110
+optitrack_config:
+        multicast_address: 239.255.42.99

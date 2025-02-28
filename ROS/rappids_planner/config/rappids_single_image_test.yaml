@@ -1,0 +1,37 @@
+planner_specs:
+    computation_time: 0.03
+    k_perc: 100.0 #coefficienct of perception cost
+    physical_vehicle_radius: 0.26
+    vehicle_radius_for_planning: 0.6
+    minimum_collision_distance: 1.0
+    min_sample_depth: 2.0 #in [m] minimum depth of sampled trajectories end point
+    max_sample_depth: 4.0 #in [m] maximum depth of sampled trajecotries end point
+    min_sample_time: 2.0 #in [s] minimum duration of sampled trajectories
+    max_sample_time: 4.0 #in [s] maximum duration of sampled trajectories
+
+depth_camera:
+    depth_scale: 0.001
+
+trajectory:
+    desired_yaw: 0.0 #in rad
+    min_allowed_thrust: 5.0
+    max_allowed_thrust: 20.0
+    max_allowed_ang_vel: 10.0
+    max_allowed_vel: 2.0
+    min_allowed_height: 1.0 #to prevent flying into water (not seen by depth cam)
+
+goal:
+    posx: 10.0 #in [m]
+    posy: 16.0
+    posz: 1.0
+    pos_tolerance: 1.0 #in [m]
+
+test:
+    with_perception: False
+    image_path: "/home/msi18/Documents/Repos/perception_aware_planning/src/rappids_planner/data_analysis/data/"
+    image_f: 424.7623291015625 #in pixel
+    image_cx: 424
+    image_cy: 240
+    goal_posx_picutre: -16.0
+    goal_posy_picutre: 0.0
+    goal_posz_picutre: 10.0

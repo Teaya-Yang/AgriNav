@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<launch>
+    <node name="rappids_perception_aware" pkg="rappids_planner" type="rappids_perception_aware" output="screen">
+      <rosparam command="load" file="$(find rappids_planner)/config/rappids_perception_aware_config.yaml" />
+    </node>
+</launch>

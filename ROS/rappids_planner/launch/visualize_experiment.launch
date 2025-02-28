@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+<launch>
+    <arg name="offline"          default="true"/>
+    <include unless="$(arg offline)" 
+        file="$(find realsense2_camera)/launch/rs_camera.launch">
+        <arg name="align_depth" value="true"/>
+        <arg name="linear_accel_cov" value="1.0"/>
+        <arg name="unite_imu_method" value="linear_interpolation"/>
+    </include>
+
+    <node name="rtabmap_odom" pkg="rappids_planner" type="rtabmap_odom" output="screen"/>
+
+    <include file="$(find rtabmap_ros)/launch/rtabmap.launch">
+        <arg name="publish_tf_map" value="false"/> 
+        <arg name="frame_id" value="imu"/>  <!-- Should match the child frame id of the odometry -->
+        <arg name="map_frame_id" value="global"/> <!-- Should match the frame id of the odometry -->
+        <arg name="args" value="--delete_db_on_start"/>
+        <arg name="rgb_topic" value="/d455/infra1/image_rect_raw"/>
+        <!-- <arg name="rgb_topic" value="/d455/color/image_raw"/> -->
+        <arg name="depth_topic" value="/d455/depth/image_rect_raw"/>
+        <arg name="camera_info_topic" value="/d455/infra1/camera_info"/>
+        <!-- <arg name="camera_info_topic" value="/d455/color/camera_info"/> -->
+        <arg name="depth_camera_info_topic" value="/d455/depth/camera_info"/>
+        <arg name="rtabmapviz" value="false"/>
+        <arg name="rviz" value="false"/>
+        <arg name="visual_odometry" value="false"/>
+        <arg name="odom_topic" value="/ov_msckf/rtabmap_odom"/>
+    </include>
+
+    <rosparam>
+        /rtabmap/rtabmap/Rtabmap/DetectionRate: 5.0
+    </rosparam>
+
+    <node type="rviz" name="rviz" pkg="rviz" args="-d $(find rappids_planner)/scripts/rappids_experiment.rviz"/>
+
+</launch>

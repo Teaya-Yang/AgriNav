@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<launch>
+    <node name="single_image_test" pkg="rappids_planner" type="single_image_test" output="screen">
+      <rosparam command="load" file="$(find rappids_planner)/config/rappids_single_image_test.yaml" />
+    </node>
+</launch>

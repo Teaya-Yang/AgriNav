@@ -1,0 +1,20 @@
+<launch>
+
+  <!-- Pass in mocap_config_file:=/path/to/config.yaml to change options. -->
+  <arg name="mocap_config_file"
+       default="$(find hiperlab_hardware)/src/mocap_optitrack/config/mocap.yaml" />
+
+  <node pkg="hiperlab_hardware"
+        type="mocap_optitrack"
+        name="mocap_optitrack"
+		output="screen"
+        respawn="false"
+        launch-prefix=""
+        required="true">
+    <rosparam file="$(arg mocap_config_file)" command="load" />
+  </node>
+  <node pkg="hiperlab_rostools" 
+  		name="bagAutorecorder"
+  		type="bagAutorecorder.sh"
+  		output="screen" />
+</launch>

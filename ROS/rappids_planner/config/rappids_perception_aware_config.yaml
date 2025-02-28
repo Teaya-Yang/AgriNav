@@ -1,0 +1,32 @@
+planner_specs:
+    is_sim: false
+    perception_aware: true
+    open_loop_test: false
+    k_perc: 100.0 #the coefficient of the perception cost term
+    computation_time: 0.05
+    physical_vehicle_radius: 0.35 #We don't look at any pixels closer than this distance (e.g. if the propellers are in the field of view)
+    vehicle_radius_for_planning: 0.55
+    minimum_collision_distance: 1.0
+    min_sample_depth: 2.0 #in [m] minimum depth of sampled trajectories end point
+    max_sample_depth: 4.0 #in [m] maximum depth of sampled trajecotries end point
+    min_sample_time: 1.0 #in [s] minimum duration of sampled trajectories
+    max_sample_time: 4.0 #in [s] maximum duration of sampled trajectories
+    use_px4_odom: true #if true, use px4 odometry; if false use D455 odometry
+
+depth_camera:
+    depth_scale: 0.001
+    fps: 15.0
+    exposure_time: 0.00005 #the exposure time of the camera, in second
+
+trajectory:
+    min_allowed_thrust: 5.0
+    max_allowed_thrust: 15.0
+    max_allowed_ang_vel: 10.0
+    max_allowed_vel: 3.0
+    min_allowed_height: 1.0 #to prevent flying into water (not seen by depth cam)
+
+goal:
+    posx: 30.0 #in [m]
+    posy: 0.0
+    posz: 2.0
+    pos_tolerance: 1.5 #in [m]
