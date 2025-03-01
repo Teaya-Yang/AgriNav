@@ -1,6 +1,7 @@
-# Unity-ROS Simulator
-Meant to be used with HiPeRLab General Code.
+# AgriNav: UAV Simulator for Vision-based Navigation in Agricultural Environments
+![cover](https://github.com/user-attachments/assets/00a6f7b7-0d38-44f6-9b72-89b2e13f38c2)
 
+# Installation Instructions
 ## Install Unity
 
 The instructions from this point onward is about the Unity simulator.
