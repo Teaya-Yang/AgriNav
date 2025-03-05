@@ -1,7 +1,9 @@
 # AgriNav: UAV Simulator for Vision-based Navigation in Agricultural Environments
 ![cover](https://github.com/user-attachments/assets/00a6f7b7-0d38-44f6-9b72-89b2e13f38c2)
 
-# Installation Instructions
+AgriNav is a simulator designed for vision-based navigation and data collection in agricultural environments using unmanned aerial vehicles (UAVs). It provides a flexible platform for testing various navigation algorithms by integrating visual-inertial odometry (VIO) with our UAV flight library. Currently, AgriNav supports VIO integration with [OpenVINS](https://github.com/rpng/open_vins.git).
+
+# Quick Start Guide
 ## Install Unity
 
 The instructions from this point onward is about the Unity simulator.
@@ -27,6 +29,7 @@ The instructions from this point onward is about the Unity simulator.
 ![image](https://hackmd.io/_uploads/B18OKP2Myl.png)
 ![image](https://hackmd.io/_uploads/SkBQj82MJx.png)
 
+## Set up workspace
 
 ## Check connection
 
