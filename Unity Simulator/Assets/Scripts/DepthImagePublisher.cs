@@ -85,7 +85,7 @@ private void UpdateMessage()
         // Copy image to texture and flip it vertically
 
         RenderTexture renderTexture = ImageCamera.targetTexture;
-        ApplyBlur(renderTexture);
+        // ApplyBlur(renderTexture);
         texture2D.ReadPixels(rect, 0, 0, false);
         texture2D.Apply();
         FlipTextureVertically(texture2D);

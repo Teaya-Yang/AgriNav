@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.67712927, g: 0.7714684, b: 0.87563556, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2123,7 +2122,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &747968167
 Transform:
   m_ObjectHideFlags: 0
@@ -2707,7 +2706,7 @@ MonoBehaviour:
   resolutionHeight: 480
   publishMessageFrequency: 15
   blurShader: {fileID: 4800000, guid: bfcf205376a69e839822952c4fd65f07, type: 3}
-  effectsShader: {fileID: 4800000, guid: a74c55c49f9dcf4f4af0842499dcef53, type: 3}
+  effectsShader: {fileID: 4800000, guid: f8f888c9154ce196f88dcd5890f8579e, type: 3}
 --- !u!81 &1023059907
 AudioListener:
   m_ObjectHideFlags: 0
@@ -3186,7 +3185,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1168930520
 Transform:
   m_ObjectHideFlags: 0
@@ -3743,7 +3742,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &1378682227
 MeshCollider:
   m_ObjectHideFlags: 0
